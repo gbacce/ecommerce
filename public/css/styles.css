@@ -1,0 +1,22 @@
+/* line 6, ../../compass/sass/_footer.scss */
+.main {
+  background: blue;
+}
+/* line 8, ../../compass/sass/_footer.scss */
+.main li {
+  font-size: 1px;
+}
+
+/* line 13, ../../compass/sass/_footer.scss */
+.container {
+  font-size: 14px;
+}
+/* line 15, ../../compass/sass/_footer.scss */
+.container li {
+  list-style: none;
+  font-size: 15px;
+}
+/* line 18, ../../compass/sass/_footer.scss */
+.container li a {
+  text-decoration: none;
+}
