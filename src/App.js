@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './containers/Home';
-import Register from './components/Register'
+import Register from './containers/Register'
 
 class App extends Component {
   render() {
