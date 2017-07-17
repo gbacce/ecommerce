@@ -30,6 +30,17 @@ router.get('/productlines/get', function(req, res) {
   });
 });
 
+router.get('/productlines/:productLines/get', (req, res)=>{
+  const productline = req.params.productLines;
+  var productlineQuery = `SELECT * from productLines
+    INNER JOIN products on productlines.productLine = products.productLine
+    WHERE link = ?`
+  connection.query(productlineQuery, [productline], (error, results)=>{
+    if (error) throw error;
+    res.json(results)
+  })
+});
+
 router.post('/register', (req, res)=>{
   const username = req.body.username;
   const name = req.body.name;
@@ -70,7 +81,8 @@ router.post('/register', (req, res)=>{
           }else{
             res.json({
               msg: "userInserted",
-              token: token
+              token: token,
+              name: name
             })
           }
         });

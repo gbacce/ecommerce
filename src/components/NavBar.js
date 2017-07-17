@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Route} from 'react-router-dom';
-import Slick from './Slick';
+import {Link} from 'react-router-dom';
 import $ from 'jquery';
 import {connect} from 'react-redux'
 
@@ -63,7 +62,7 @@ class NavBar extends Component{
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
-          <div className="container">
+          <div className="container-fluid">
             <div className="navbar-header">
               <Link to="/" className="navbar-brand">ClassicModels</Link>
             </div>
@@ -72,7 +71,6 @@ class NavBar extends Component{
             </ul>
           </div>
         </nav>
-        <Route exact path="/" component={Slick} />
       </div>
     )
   }

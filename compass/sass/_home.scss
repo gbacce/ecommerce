@@ -1,0 +1,20 @@
+.productline-images {
+  margin-bottom: 10px;
+  img {
+    height: 256px;
+    width: 256px;
+    border: 5px solid #E6E6E6;
+    &:hover{
+      border-color: #1D5E9A
+    }
+  }
+  a {
+    display: block;
+    cursor: pointer;
+  }
+  .text {
+    color: #121212;
+    margin-bottom: 15px;
+    font-size: 32px;
+  }
+}
