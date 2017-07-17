@@ -6,12 +6,24 @@ class ProductLine extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      productList: []
+      productList: [],
+      whichWay: true
     }
+
+    this.sortTable = this.sortTable.bind(this);
+    this.getProducts = this.getProducts.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.getProducts(nextProps);
   }
 
   componentDidMount() {
-    const productline = this.props.match.params.productLine
+    this.getProducts(this.props)
+  }
+
+  getProducts(props){
+    const productline = props.match.params.productLine
     const url = window.hostAddress + `/productlines/${productline}/get`
     $.getJSON(url, (data) => {
       this.setState({
@@ -20,19 +32,24 @@ class ProductLine extends Component {
     })
   }
 
+
   sortTable(columnName){
     var productList = this.state.productList.slice();
-
-    productList.sort(function(a, b) {
+    
+    productList.sort((a, b) => {
       var textA = a[columnName];
       var textB = b[columnName];
-      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    });
-
-    this.setState({
-      productList: productList
+      if(this.state.whichWay){
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      } else {
+        return (textA < textB) ? 1 : (textA > textB) ? -1 : 0;
+      }
     })
 
+    this.setState({
+      productList: productList,
+      whichWay: !this.state.whichWay
+    })
   }
 
   render() {
